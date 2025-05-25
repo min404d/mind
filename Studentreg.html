@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Registration with Bootstrap</title>
+  <link href="bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="p-4">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h3 class="mb-3">Student Reg</h3>
+        <form id="studentForm">
+          <div class="mb-3">
+            <input type="text" class="form-control" id="name" placeholder="Name" required>
+          </div>
+          <div class="mb-3">
+            <input type="text" class="form-control" id="studentId" placeholder="Student ID" required>
+          </div>
+          <div class="mb-3">
+            <input type="email" class="form-control" id="email" placeholder="Email" required>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Register</button>
+        </form>
+      </div>
+
+      <div class="col-md-8">
+        <h3 class="mb-3">Student List</h3>
+        <table class="table table-bordered table-striped" id="studentTable">
+          <thead class="table-light">
+            <tr>
+              <th>Name</th>
+              <th>Student ID</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+           
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("studentForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const studentId = document.getElementById("studentId").value;
+      const email = document.getElementById("email").value;
+
+      const table = document.getElementById("studentTable").getElementsByTagName("tbody")[0];
+      const newRow = table.insertRow();
+
+      newRow.insertCell(0).textContent = name;
+      newRow.insertCell(1).textContent = studentId;
+      newRow.insertCell(2).textContent = email;
+
+      
+    });
+  </script>
+
+</body>
+</html>
